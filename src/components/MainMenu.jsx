@@ -18,8 +18,8 @@ export default function MainMenu({ bestScore, onPlay, onInstructions, soundEnabl
             {soundEnabled ? 'Son' : 'Muet'}
           </button>
         </div>
-        <a className="engine-switch" href={GAME_ENGINE === '3d' ? '?' : '?moteur=3d'}>
-          {GAME_ENGINE === '3d' ? 'Revenir à la version 2D' : 'Essayer la version 3D (bêta)'}
+        <a className="engine-switch" href={GAME_ENGINE === '3d' ? '?moteur=2d' : '?'}>
+          {GAME_ENGINE === '3d' ? 'Jouer à la version 2D classique' : 'Revenir à la version 3D'}
         </a>
       </div>
     </section>

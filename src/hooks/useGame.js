@@ -4,7 +4,7 @@ import RunnerScene from '../game/RunnerScene.js';
 import { GAME_HEIGHT, GAME_WIDTH } from '../game/config.js';
 import { playCoin, playCollision, playJump, playLevelUp, playSlide } from '../services/audioService.js';
 
-export const GAME_ENGINE = new URLSearchParams(window.location.search).get('moteur') === '3d' ? '3d' : '2d';
+export const GAME_ENGINE = new URLSearchParams(window.location.search).get('moteur') === '2d' ? '2d' : '3d';
 
 // Both engines expose the same events and the same showPreview / startNewRun / pauseRun / resumeRun methods.
 function bindGameEvents(events, optionsRef) {
