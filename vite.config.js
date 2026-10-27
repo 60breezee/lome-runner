@@ -8,6 +8,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           phaser: ['phaser'],
+          three: ['three'],
         },
       },
     },
