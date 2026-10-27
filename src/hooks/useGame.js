@@ -4,6 +4,26 @@ import RunnerScene from '../game/RunnerScene.js';
 import { GAME_HEIGHT, GAME_WIDTH } from '../game/config.js';
 import { playCoin, playCollision, playJump, playLevelUp, playSlide } from '../services/audioService.js';
 
+export const GAME_ENGINE = new URLSearchParams(window.location.search).get('moteur') === '2d' ? '2d' : '3d';
+
+// Both engines expose the same events and the same showPreview / startNewRun / pauseRun / resumeRun methods.
+function bindGameEvents(events, optionsRef) {
+  events.on('score-updated', (score) => optionsRef.current.onScore?.(score));
+  events.on('coin-collected', () => playCoin());
+  events.on('jump', () => playJump());
+  events.on('slide', () => playSlide());
+  events.on('level-up', (level) => {
+    playLevelUp();
+    optionsRef.current.onLevelUp?.(level);
+  });
+  events.on('game-over', (result) => {
+    playCollision();
+    optionsRef.current.onGameOver?.(result);
+  });
+  events.on('countdown', (value) => optionsRef.current.onCountdown?.(value));
+  events.on('auto-pause', () => optionsRef.current.onAutoPause?.());
+}
+
 export function useGame(containerRef, options = {}) {
   const gameRef = useRef(null);
   const sceneReadyRef = useRef(false);
@@ -13,11 +33,40 @@ export function useGame(containerRef, options = {}) {
 
   const getRunnerScene = useCallback(() => {
     if (!gameRef.current || !sceneReadyRef.current) return null;
-    return gameRef.current.scene.getScene('RunnerScene');
+    return GAME_ENGINE === '3d' ? gameRef.current : gameRef.current.scene.getScene('RunnerScene');
+  }, []);
+
+  const runPendingAction = useCallback((scene) => {
+    sceneReadyRef.current = true;
+    if (pendingActionRef.current === 'start') scene.startNewRun();
+    else scene.showPreview();
+    pendingActionRef.current = null;
   }, []);
 
   useEffect(() => {
-    if (!containerRef.current || gameRef.current) return undefined;
+    if (!containerRef.current || gameRef.current || GAME_ENGINE !== '3d') return undefined;
+    const container = containerRef.current;
+    let runner = null;
+    let disposed = false;
+
+    import('../game3d/ThreeRunner.js').then(({ default: ThreeRunner }) => {
+      if (disposed) return;
+      runner = new ThreeRunner(container);
+      gameRef.current = runner;
+      bindGameEvents(runner.events, optionsRef);
+      runPendingAction(runner);
+    });
+
+    return () => {
+      disposed = true;
+      sceneReadyRef.current = false;
+      gameRef.current = null;
+      runner?.destroy();
+    };
+  }, [containerRef, runPendingAction]);
+
+  useEffect(() => {
+    if (!containerRef.current || gameRef.current || GAME_ENGINE !== '2d') return undefined;
 
     const game = new Phaser.Game({
       type: Phaser.AUTO,
@@ -37,28 +86,12 @@ export function useGame(containerRef, options = {}) {
     game.events.once('ready', () => {
       if (gameRef.current !== game) return;
       const scene = game.scene.getScene('RunnerScene');
-      scene.events.on('score-updated', (score) => optionsRef.current.onScore?.(score));
-      scene.events.on('coin-collected', () => playCoin());
-      scene.events.on('jump', () => playJump());
-      scene.events.on('slide', () => playSlide());
-      scene.events.on('level-up', (level) => {
-        playLevelUp();
-        optionsRef.current.onLevelUp?.(level);
-      });
-      scene.events.on('game-over', (result) => {
-        playCollision();
-        optionsRef.current.onGameOver?.(result);
-      });
-      scene.events.on('countdown', (value) => optionsRef.current.onCountdown?.(value));
-      scene.events.on('auto-pause', () => optionsRef.current.onAutoPause?.());
+      bindGameEvents(scene.events, optionsRef);
 
       // Scene methods need the objects built in create(), which runs after the SVGs finish loading.
       scene.events.once(Phaser.Scenes.Events.CREATE, () => {
         if (gameRef.current !== game) return;
-        sceneReadyRef.current = true;
-        if (pendingActionRef.current === 'start') scene.startNewRun();
-        else scene.showPreview();
-        pendingActionRef.current = null;
+        runPendingAction(scene);
       });
     });
 
@@ -69,7 +102,7 @@ export function useGame(containerRef, options = {}) {
       // Phaser defers canvas removal to its next tick, which never comes if the game has not booted yet.
       game.canvas?.remove();
     };
-  }, [containerRef]);
+  }, [containerRef, runPendingAction]);
 
   const startRun = useCallback(() => {
     const scene = getRunnerScene();

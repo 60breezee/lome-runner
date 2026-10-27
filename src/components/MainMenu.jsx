@@ -1,3 +1,5 @@
+import { GAME_ENGINE } from '../hooks/useGame.js';
+
 export default function MainMenu({ bestScore, onPlay, onInstructions, soundEnabled, onToggleSound }) {
   return (
     <section className="screen-overlay menu-screen">
@@ -16,6 +18,9 @@ export default function MainMenu({ bestScore, onPlay, onInstructions, soundEnabl
             {soundEnabled ? 'Son' : 'Muet'}
           </button>
         </div>
+        <a className="engine-switch" href={GAME_ENGINE === '3d' ? '?moteur=2d' : '?'}>
+          {GAME_ENGINE === '3d' ? 'Jouer à la version 2D classique' : 'Revenir à la version 3D'}
+        </a>
       </div>
     </section>
   );

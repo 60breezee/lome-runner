@@ -194,6 +194,17 @@ button:focus-visible {
   font-size: 16px;
 }
 
+.engine-switch {
+  align-self: center;
+  padding: 4px 12px;
+  border-radius: 12px;
+  background: rgba(24, 22, 20, 0.72);
+  color: #f4b400;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
 .game-hud {
   position: absolute;
   z-index: 5;
