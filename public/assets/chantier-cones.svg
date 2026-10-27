@@ -1,11 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-72 -64 144 68" width="144" height="68">
-  <ellipse cx="0" cy="-2" rx="70" ry="8" fill="#000" opacity=".3"/>
-  <rect x="-36" y="-52" width="72" height="12" fill="#F5F5F5"/>
-  <rect x="-26" y="-52" width="10" height="12" fill="#E53935"/>
-  <rect x="-6" y="-52" width="10" height="12" fill="#E53935"/>
-  <rect x="14" y="-52" width="10" height="12" fill="#E53935"/>
-  <polygon points="-62,0 -30,0 -41,-62 -51,-62" fill="#F57C00"/>
-  <polygon points="-56,-26 -36,-26 -38,-38 -54,-38" fill="#F5F5F5"/>
-  <polygon points="30,0 62,0 51,-62 41,-62" fill="#F57C00"/>
-  <polygon points="36,-26 56,-26 54,-38 38,-38" fill="#F5F5F5"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-72 -66 144 70" width="144" height="70">
+  <ellipse cx="0" cy="-3" rx="70" ry="8" fill="#000" opacity=".3"/>
+  <path d="M-30 0 Q-14 -22 2 0 Z" fill="#D9B77A"/>
+  <path d="M-22 -4 Q-14 -14 -6 -4" stroke="#C49A5A" stroke-width="2" fill="none"/>
+  <path d="M-34 -2 L-30 -44 M34 -2 L30 -44" stroke="#5A4636" stroke-width="5" stroke-linecap="round"/>
+  <rect x="-40" y="-54" width="80" height="14" rx="2" fill="#F5F5F5"/>
+  <path d="M-34 -54 L-24 -40 M-18 -54 L-8 -40 M-2 -54 L8 -40 M14 -54 L24 -40 M30 -54 L38 -43" stroke="#E53935" stroke-width="6"/>
+  <rect x="-40" y="-54" width="80" height="14" rx="2" fill="none" stroke="#181614" stroke-width="1.5" opacity=".5"/>
+  <circle cx="-34" cy="-58" r="4" fill="#FFB300"/>
+  <circle cx="34" cy="-58" r="4" fill="#FFB300"/>
+  <g>
+    <rect x="-66" y="-6" width="40" height="6" rx="2" fill="#C85A00"/>
+    <polygon points="-62,-6 -30,-6 -41,-62 -51,-62" fill="#F57C00"/>
+    <polygon points="-56,-26 -36,-26 -38,-37 -54,-37" fill="#F5F5F5"/>
+    <polygon points="-52,-46 -40,-46 -41,-53 -51,-53" fill="#F5F5F5"/>
+    <polygon points="-46,-62 -41,-62 -33,-6 -38,-6" fill="#C85A00" opacity=".45"/>
+  </g>
+  <g>
+    <rect x="26" y="-6" width="40" height="6" rx="2" fill="#C85A00"/>
+    <polygon points="30,-6 62,-6 51,-62 41,-62" fill="#F57C00"/>
+    <polygon points="36,-26 56,-26 54,-37 38,-37" fill="#F5F5F5"/>
+    <polygon points="40,-46 52,-46 51,-53 41,-53" fill="#F5F5F5"/>
+    <polygon points="46,-62 51,-62 59,-6 54,-6" fill="#C85A00" opacity=".45"/>
+  </g>
 </svg>

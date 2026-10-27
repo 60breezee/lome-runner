@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-66 -106 132 112" width="132" height="112">
+  <ellipse cx="0" cy="-3" rx="62" ry="8" fill="#000" opacity=".3"/>
+  <rect x="-56" y="-24" width="20" height="24" rx="5" fill="#151515"/>
+  <rect x="36" y="-24" width="20" height="24" rx="5" fill="#151515"/>
+  <path d="M-44 -60 Q-38 -96 -22 -98 L22 -98 Q38 -96 44 -60 Z" fill="#185A8A"/>
+  <path d="M-35 -64 Q-31 -88 -19 -90 L19 -90 Q31 -88 35 -64 Z" fill="#22303A"/>
+  <path d="M-31 -66 Q-28 -84 -18 -87 L-8 -87 L-22 -66 Z" fill="#fff" opacity=".2"/>
+  <rect x="-53" y="-72" width="10" height="8" rx="3" fill="#185A8A"/>
+  <rect x="43" y="-72" width="10" height="8" rx="3" fill="#185A8A"/>
+  <path d="M-58 -26 Q-60 -54 -46 -62 L46 -62 Q60 -54 58 -26 Z" fill="#1E6FA8"/>
+  <path d="M-59 -38 L59 -38 L58 -26 L-58 -26 Z" fill="#185A8A"/>
+  <path d="M-56 -52 Q-50 -50 -32 -50 L-32 -44 Q-50 -44 -57 -46 Z" fill="#B3261E"/>
+  <path d="M56 -52 Q50 -50 32 -50 L32 -44 Q50 -44 57 -46 Z" fill="#B3261E"/>
+  <path d="M-32 -50 H32" stroke="#B3261E" stroke-width="2" opacity=".6"/>
+  <circle cx="0" cy="-56" r="3.5" fill="#D9D9D9"/>
+  <rect x="-16" y="-40" width="32" height="11" rx="2" fill="#F5F5F5" stroke="#333" stroke-width="1.5"/>
+  <text x="0" y="-31.5" font-family="Arial, sans-serif" font-size="8" font-weight="700" text-anchor="middle" fill="#222">TG 7714</text>
+  <rect x="-60" y="-28" width="120" height="11" rx="5" fill="#2E2E2E"/>
+  <rect x="-60" y="-28" width="120" height="3" rx="1.5" fill="#BDBDBD" opacity=".5"/>
+  <ellipse cx="-42" cy="-15" rx="5" ry="3" fill="#555"/>
+</svg>

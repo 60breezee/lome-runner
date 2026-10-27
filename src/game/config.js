@@ -19,12 +19,17 @@ export const COLORS = {
   sun: 0xffe08a,
   curb: 0xd9d2c3,
   ochre: 0xf4b400,
+  brick: 0xb3261e,
+  sidewalk: 0xcbbca2,
+  asphaltFar: 0x77716b,
+  asphaltPatch: 0x33322f,
 };
 
 export const STATIC_OBJECTS = {
   obstacles: [
     { key: 'zemidjan', lane: 1, depth: 0.3 },
-    { key: 'taxi', lane: -1, depth: 0.45 },
+    { key: 'minibus', lane: -1, depth: 0.38 },
+    { key: 'taxi', lane: 1, depth: 0.5 },
     { key: 'market', lane: 0, depth: 0.62 },
     { key: 'worksite', lane: 1, depth: 0.72 },
   ],
@@ -43,8 +48,12 @@ export const OBSTACLES = {
   zemidjan: { asset: '/assets/zemidjan.svg', avoid: 'lane', unlockMeters: 0, weight: 1 },
   taxi: { asset: '/assets/taxi.svg', avoid: 'lane', unlockMeters: 0, weight: 1 },
   market: { asset: '/assets/etal-marche.svg', avoid: 'lane', unlockMeters: 0, weight: 1 },
-  worksite: { asset: '/assets/chantier-cones.svg', avoid: 'jump', unlockMeters: 150, weight: 0.9 },
-  gate: { asset: '/assets/portique.svg', avoid: 'slide', unlockMeters: 450, weight: 0.9 },
+  sedan: { asset: '/assets/berline.svg', avoid: 'lane', unlockMeters: 0, weight: 0.8 },
+  tricycle: { asset: '/assets/tricycle.svg', avoid: 'lane', unlockMeters: 250, weight: 0.8 },
+  pickup: { asset: '/assets/pickup.svg', avoid: 'lane', unlockMeters: 400, weight: 0.8 },
+  minibus: { asset: '/assets/minibus.svg', avoid: 'lane', unlockMeters: 650, weight: 0.7 },
+  worksite: { asset: '/assets/chantier-cones.svg', avoid: 'jump', unlockMeters: 150, weight: 1.5 },
+  gate: { asset: '/assets/portique.svg', avoid: 'slide', unlockMeters: 450, weight: 1.5 },
 };
 
 export const MOVEMENT = {

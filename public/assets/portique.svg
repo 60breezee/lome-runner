@@ -1,12 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-72 -152 144 156" width="144" height="156">
-  <ellipse cx="-60" cy="-2" rx="10" ry="4" fill="#000" opacity=".3"/>
-  <ellipse cx="60" cy="-2" rx="10" ry="4" fill="#000" opacity=".3"/>
-  <rect x="-64" y="-148" width="8" height="148" rx="2" fill="#5A4636"/>
-  <rect x="56" y="-148" width="8" height="148" rx="2" fill="#5A4636"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-72 -156 144 160" width="144" height="160">
+  <ellipse cx="-60" cy="-2" rx="11" ry="4" fill="#000" opacity=".3"/>
+  <ellipse cx="60" cy="-2" rx="11" ry="4" fill="#000" opacity=".3"/>
+  <rect x="-66" y="-148" width="10" height="148" rx="2" fill="#F4B400"/>
+  <path d="M-66 -96 L-56 -106 M-66 -76 L-56 -86 M-66 -56 L-56 -66 M-66 -36 L-56 -46 M-66 -16 L-56 -26" stroke="#181614" stroke-width="5"/>
+  <rect x="56" y="-148" width="10" height="148" rx="2" fill="#F4B400"/>
+  <path d="M56 -106 L66 -96 M56 -86 L66 -76 M56 -66 L66 -56 M56 -46 L66 -36 M56 -26 L66 -16" stroke="#181614" stroke-width="5"/>
+  <rect x="-66" y="-6" width="10" height="6" fill="#5A4636"/>
+  <rect x="56" y="-6" width="10" height="6" fill="#5A4636"/>
   <rect x="-70" y="-146" width="140" height="40" rx="5" fill="#F1E3C6"/>
   <rect x="-50" y="-146" width="20" height="40" fill="#C62828"/>
   <rect x="-10" y="-146" width="20" height="40" fill="#C62828"/>
   <rect x="30" y="-146" width="20" height="40" fill="#C62828"/>
   <rect x="-70" y="-112" width="140" height="6" fill="#181614" opacity=".25"/>
   <rect x="-70" y="-146" width="140" height="40" rx="5" fill="none" stroke="#181614" stroke-width="2"/>
+  <circle cx="-61" cy="-151" r="4" fill="#FF5A4E"/>
+  <circle cx="61" cy="-151" r="4" fill="#FF5A4E"/>
 </svg>

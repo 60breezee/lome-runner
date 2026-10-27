@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-66 -126 132 132" width="132" height="132">
+  <ellipse cx="0" cy="-3" rx="62" ry="8" fill="#000" opacity=".3"/>
+  <rect x="-58" y="-26" width="21" height="26" rx="5" fill="#151515"/>
+  <rect x="37" y="-26" width="21" height="26" rx="5" fill="#151515"/>
+  <path d="M-38 -76 L-34 -106 Q-33 -110 -28 -110 L28 -110 Q33 -110 34 -106 L38 -76 Z" fill="#E8E4DA"/>
+  <path d="M-30 -84 L-27 -103 L27 -103 L30 -84 Z" fill="#26323C"/>
+  <g>
+    <ellipse cx="-30" cy="-80" rx="20" ry="13" fill="#E9DFC8"/>
+    <path d="M-44 -84 Q-30 -88 -16 -84" stroke="#C9B994" stroke-width="2" fill="none"/>
+    <ellipse cx="2" cy="-84" rx="20" ry="14" fill="#D8C9A4"/>
+    <path d="M-12 -88 Q2 -92 16 -88" stroke="#B5A47C" stroke-width="2" fill="none"/>
+    <ellipse cx="32" cy="-80" rx="19" ry="13" fill="#E9DFC8"/>
+    <path d="M18 -84 Q32 -88 46 -84" stroke="#C9B994" stroke-width="2" fill="none"/>
+    <path d="M-20 -94 Q-8 -112 6 -100 Q-6 -96 -20 -94 Z" fill="#7CB342"/>
+    <path d="M10 -96 Q20 -110 30 -98" stroke="#F4D03F" stroke-width="6" fill="none" stroke-linecap="round"/>
+  </g>
+  <path d="M-60 -70 L60 -70 L58 -28 L-58 -28 Z" fill="#E8E4DA"/>
+  <rect x="-60" y="-72" width="120" height="6" rx="2" fill="#CFC9BC"/>
+  <rect x="-44" y="-62" width="88" height="26" rx="3" fill="#DAD5C9"/>
+  <path d="M-44 -54 H44 M-44 -45 H44" stroke="#C6BFB0" stroke-width="2"/>
+  <rect x="-10" y="-68" width="20" height="5" rx="2" fill="#555"/>
+  <rect x="-58" y="-64" width="11" height="20" rx="3" fill="#B3261E"/>
+  <rect x="-56" y="-62" width="5" height="9" rx="2" fill="#FF7B6E"/>
+  <rect x="47" y="-64" width="11" height="20" rx="3" fill="#B3261E"/>
+  <rect x="51" y="-62" width="5" height="9" rx="2" fill="#FF7B6E"/>
+  <rect x="-60" y="-30" width="120" height="12" rx="4" fill="#2E2E2E"/>
+  <rect x="-15" y="-29" width="30" height="10" rx="2" fill="#F5F5F5" stroke="#333" stroke-width="1.5"/>
+  <text x="0" y="-21.5" font-family="Arial, sans-serif" font-size="7.5" font-weight="700" text-anchor="middle" fill="#222">TG 4402</text>
+</svg>

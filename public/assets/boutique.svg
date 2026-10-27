@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -104 120 106" width="120" height="106">
+  <rect x="-52" y="-78" width="104" height="78" fill="#F1E3C6"/>
+  <rect x="-52" y="-12" width="104" height="12" fill="#2F7D4F"/>
+  <rect x="-56" y="-100" width="112" height="24" rx="3" fill="#B3261E"/>
+  <text x="0" y="-83" font-family="Arial, sans-serif" font-size="13" font-weight="900" text-anchor="middle" fill="#F1E3C6" letter-spacing="1">BOUTIQUE</text>
+  <path d="M-54 -76 H54 L50 -64 H-50 Z" fill="#F4B400"/>
+  <path d="M-36 -76 L-34 -64 M-18 -76 L-17 -64 M0 -76 V-64 M18 -76 L17 -64 M36 -76 L34 -64" stroke="#D99A00" stroke-width="3"/>
+  <rect x="-44" y="-58" width="88" height="46" fill="#3A2A1E"/>
+  <g>
+    <rect x="-40" y="-54" width="80" height="4" fill="#8D5A33"/>
+    <rect x="-40" y="-36" width="80" height="4" fill="#8D5A33"/>
+    <rect x="-36" y="-64" width="8" height="10" rx="2" fill="#C62828"/>
+    <rect x="-26" y="-64" width="8" height="10" rx="2" fill="#1E6FA8"/>
+    <rect x="-16" y="-63" width="10" height="9" fill="#F4B400"/>
+    <rect x="-4" y="-64" width="8" height="10" rx="2" fill="#7CB342"/>
+    <rect x="6" y="-63" width="12" height="9" fill="#F5F5F5"/>
+    <rect x="20" y="-64" width="8" height="10" rx="2" fill="#C62828"/>
+    <rect x="30" y="-63" width="8" height="9" fill="#F57C00"/>
+    <rect x="-36" y="-46" width="12" height="10" fill="#F5F5F5"/>
+    <rect x="-22" y="-47" width="8" height="11" rx="2" fill="#F4B400"/>
+    <rect x="-12" y="-46" width="12" height="10" fill="#E53935"/>
+    <rect x="2" y="-47" width="8" height="11" rx="2" fill="#1E6FA8"/>
+    <rect x="12" y="-46" width="12" height="10" fill="#7CB342"/>
+    <rect x="26" y="-47" width="10" height="11" rx="2" fill="#F57C00"/>
+  </g>
+  <rect x="-46" y="-26" width="92" height="14" fill="#A86B3C"/>
+  <path d="M-46 -19 H46" stroke="#8D5A33" stroke-width="2"/>
+</svg>

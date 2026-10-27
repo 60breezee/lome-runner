@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-66 -158 132 164" width="132" height="164">
+  <ellipse cx="0" cy="-3" rx="62" ry="8" fill="#000" opacity=".3"/>
+  <rect x="-56" y="-26" width="21" height="26" rx="5" fill="#151515"/>
+  <rect x="35" y="-26" width="21" height="26" rx="5" fill="#151515"/>
+  <g>
+    <rect x="-46" y="-152" width="30" height="20" rx="5" fill="#1E6FA8"/>
+    <rect x="-18" y="-156" width="34" height="24" rx="6" fill="#C62828"/>
+    <path d="M-18 -144 H16" stroke="#8E1C1C" stroke-width="2"/>
+    <rect x="16" y="-148" width="30" height="16" rx="5" fill="#F4B400"/>
+    <path d="M-50 -132 H50" stroke="#444" stroke-width="3"/>
+    <path d="M-48 -132 V-138 M-20 -132 V-138 M20 -132 V-138 M48 -132 V-138" stroke="#444" stroke-width="2"/>
+  </g>
+  <path d="M-56 -26 L-56 -118 Q-56 -130 -44 -130 L44 -130 Q56 -130 56 -118 L56 -26 Z" fill="#F1F0EA"/>
+  <path d="M-46 -84 L-46 -116 Q-46 -122 -40 -122 L40 -122 Q46 -122 46 -116 L46 -84 Z" fill="#26323C"/>
+  <path d="M-42 -86 L-42 -114 L-26 -114 L-36 -86 Z" fill="#fff" opacity=".18"/>
+  <rect x="-56" y="-76" width="112" height="6" fill="#2F7D4F"/>
+  <rect x="-56" y="-70" width="112" height="6" fill="#F4B400"/>
+  <rect x="-56" y="-64" width="112" height="6" fill="#C62828"/>
+  <path d="M0 -130 V-30" stroke="#D2D0C8" stroke-width="2"/>
+  <rect x="44" y="-128" width="6" height="96" rx="2" fill="#9E9E9E" opacity=".9"/>
+  <path d="M44 -112 H50 M44 -98 H50 M44 -84 H50 M44 -70 H50 M44 -56 H50 M44 -42 H50" stroke="#757575" stroke-width="2"/>
+  <rect x="-54" y="-56" width="10" height="22" rx="3" fill="#B3261E"/>
+  <rect x="-52" y="-54" width="5" height="9" rx="2" fill="#FF7B6E"/>
+  <rect x="-54" y="-40" width="10" height="5" rx="2" fill="#FFB300"/>
+  <rect x="34" y="-56" width="10" height="22" rx="3" fill="#B3261E"/>
+  <rect x="37" y="-54" width="5" height="9" rx="2" fill="#FF7B6E"/>
+  <rect x="34" y="-40" width="10" height="5" rx="2" fill="#FFB300"/>
+  <rect x="-16" y="-46" width="32" height="11" rx="2" fill="#F5F5F5" stroke="#333" stroke-width="1.5"/>
+  <text x="0" y="-37.5" font-family="Arial, sans-serif" font-size="8" font-weight="700" text-anchor="middle" fill="#222">TG 1960</text>
+  <rect x="-60" y="-30" width="120" height="12" rx="5" fill="#2E2E2E"/>
+  <ellipse cx="44" cy="-16" rx="5" ry="3" fill="#555"/>
+</svg>

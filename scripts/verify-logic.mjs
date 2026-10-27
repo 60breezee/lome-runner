@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { GAMEPLAY } from '../src/game/config.js';
+import { GAMEPLAY, OBSTACLES } from '../src/game/config.js';
 import {
   getLevelForDistance,
   getRowGapForDistance,
@@ -46,7 +46,10 @@ assert.ok(getWallChance(5000) > 0);
 
 for (let step = 0; step < 100; step += 1) {
   const key = pickObstacleKey(0, step / 100);
-  assert.ok(['zemidjan', 'taxi', 'market'].includes(key), `${key} must not appear at 0 m`);
+  assert.equal(OBSTACLES[key].unlockMeters, 0, `${key} must not appear at 0 m`);
 }
+const lateKeys = new Set();
+for (let step = 0; step < 1000; step += 1) lateKeys.add(pickObstacleKey(5000, step / 1000));
+assert.deepEqual([...lateKeys].sort(), Object.keys(OBSTACLES).sort(), 'every obstacle must be reachable late in the run');
 
 console.log('Difficulty checks passed.');

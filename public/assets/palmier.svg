@@ -1,9 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -145 100 150" width="100" height="150">
-  <path d="M0 0 Q6 -60 3 -130" stroke="#6B4A2B" stroke-width="9" fill="none"/>
-  <g fill="#2F7D4F">
-    <ellipse cx="3" cy="-134" rx="46" ry="9" transform="rotate(-25 3 -134)"/>
-    <ellipse cx="3" cy="-134" rx="46" ry="9" transform="rotate(25 3 -134)"/>
-    <ellipse cx="3" cy="-134" rx="40" ry="8" transform="rotate(-65 3 -134)"/>
-    <ellipse cx="3" cy="-134" rx="40" ry="8" transform="rotate(65 3 -134)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-56 -152 112 156" width="112" height="156">
+  <ellipse cx="2" cy="-2" rx="16" ry="4" fill="#000" opacity=".22"/>
+  <path d="M0 0 Q9 -62 4 -128" stroke="#6B4A2B" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M3 0 Q12 -62 7 -128" stroke="#4E3520" stroke-width="3" fill="none" opacity=".6"/>
+  <path d="M-4 -14 h9 M-2 -30 h10 M0 -46 h10 M1 -62 h10 M2 -78 h10 M2 -94 h9 M2 -110 h8" stroke="#4E3520" stroke-width="2" opacity=".7"/>
+  <g fill="#246340">
+    <path d="M4 -130 Q-24 -150 -54 -118 Q-26 -134 4 -126 Z"/>
+    <path d="M4 -130 Q32 -150 56 -116 Q30 -134 4 -126 Z"/>
   </g>
+  <g fill="#2F7D4F">
+    <path d="M4 -130 Q-30 -136 -46 -96 Q-24 -122 4 -124 Z"/>
+    <path d="M4 -130 Q36 -134 50 -94 Q28 -120 4 -124 Z"/>
+    <path d="M4 -132 Q-14 -156 -36 -150 Q-14 -146 2 -128 Z"/>
+    <path d="M4 -132 Q22 -156 42 -148 Q22 -144 6 -128 Z"/>
+  </g>
+  <path d="M4 -130 Q2 -112 -10 -100 Q0 -114 2 -126 Z" fill="#3E9A62"/>
+  <circle cx="-2" cy="-124" r="5" fill="#7A5A2A"/>
+  <circle cx="8" cy="-123" r="5" fill="#6B4A2B"/>
+  <circle cx="3" cy="-119" r="5" fill="#8A6A35"/>
 </svg>
