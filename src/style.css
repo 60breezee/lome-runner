@@ -26,6 +26,7 @@ body {
 .game-viewport {
   display: grid;
   width: 100vw;
+  height: 100vh;
   height: 100dvh;
   place-items: center;
   background: #181614;
@@ -41,8 +42,15 @@ body {
   background: #181614;
 }
 
+/* The 3D camera adapts to any aspect ratio, so the stage fills the whole screen. */
+.game-stage--3d {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+}
+
 @media (min-width: 480px) and (min-height: 700px) {
-  .game-stage {
+  .game-stage--2d {
     border-radius: 24px;
     outline: 2px solid rgb(241 227 198 / 16%);
   }
@@ -75,8 +83,14 @@ body {
 }
 
 .menu-screen {
-  gap: 14px;
-  padding: 96px 32px 40px;
+  gap: clamp(8px, 1.7dvh, 14px);
+  padding:
+    calc(env(safe-area-inset-top, 0px) + clamp(24px, 9dvh, 96px))
+    calc(env(safe-area-inset-right, 0px) + 24px)
+    calc(env(safe-area-inset-bottom, 0px) + clamp(12px, 4dvh, 40px))
+    calc(env(safe-area-inset-left, 0px) + 24px);
+  overflow-y: auto;
+  touch-action: pan-y;
   background: rgb(24 22 20 / 55%);
 }
 
@@ -91,9 +105,9 @@ body {
 }
 
 h1 {
-  margin: 46px 0 0;
+  margin: clamp(4px, 5dvh, 46px) 0 0;
   color: #f1e3c6;
-  font-size: 72px;
+  font-size: clamp(42px, min(9dvh, 18vw), 72px);
   font-weight: 800;
   line-height: 0.9;
   text-align: center;
@@ -125,8 +139,9 @@ h1 strong {
   flex-direction: column;
   gap: 12px;
   width: 100%;
+  max-width: 400px;
   margin-top: auto;
-  padding-bottom: 20px;
+  padding-bottom: clamp(0px, 2dvh, 20px);
 }
 
 .pill {
@@ -168,7 +183,7 @@ button:focus-visible {
 }
 
 .primary-button {
-  min-height: 60px;
+  min-height: clamp(50px, 7dvh, 60px);
   background: #b3261e;
   color: #f1e3c6;
   font-size: 24px;
@@ -214,7 +229,11 @@ button:focus-visible {
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding: 52px 16px 0;
+  padding:
+    calc(env(safe-area-inset-top, 0px) + clamp(12px, 4dvh, 52px))
+    calc(env(safe-area-inset-right, 0px) + 16px)
+    0
+    calc(env(safe-area-inset-left, 0px) + 16px);
   color: #f1e3c6;
   font-family: 'Baloo 2', system-ui, sans-serif;
   pointer-events: none;
@@ -273,9 +292,19 @@ button:focus-visible {
 }
 
 .modal-overlay {
-  justify-content: center;
-  padding: 28px;
+  padding:
+    calc(env(safe-area-inset-top, 0px) + 16px)
+    calc(env(safe-area-inset-right, 0px) + 20px)
+    calc(env(safe-area-inset-bottom, 0px) + 16px)
+    calc(env(safe-area-inset-left, 0px) + 20px);
+  overflow-y: auto;
+  touch-action: pan-y;
   background: rgb(24 22 20 / 78%);
+}
+
+/* Auto margins centre the card but let it scroll from the top when the screen is too short. */
+.modal-overlay > .modal-card {
+  margin: auto 0;
 }
 
 .modal-card {
@@ -323,7 +352,7 @@ button:focus-visible {
   place-items: center;
   color: #f1e3c6;
   font-family: 'Baloo 2', system-ui, sans-serif;
-  font-size: 96px;
+  font-size: clamp(64px, 12dvh, 96px);
   font-weight: 800;
   text-shadow: 0 5px 0 #181614;
   pointer-events: none;
@@ -332,7 +361,7 @@ button:focus-visible {
 .level-banner {
   position: absolute;
   z-index: 6;
-  top: 150px;
+  top: calc(env(safe-area-inset-top, 0px) + clamp(76px, 16dvh, 150px));
   left: 50%;
   padding: 6px 18px;
   border-radius: 16px;
@@ -407,6 +436,50 @@ button:focus-visible {
 
 .game-over-card .primary-button {
   margin-top: 8px;
+}
+
+@media (max-height: 560px) {
+  .menu-screen {
+    gap: 8px;
+    padding-top: calc(env(safe-area-inset-top, 0px) + 12px);
+  }
+
+  h1 {
+    margin-top: 0;
+    font-size: 40px;
+  }
+
+  .tagline {
+    margin: 0;
+    font-size: 16px;
+  }
+
+  .menu-actions {
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .primary-button {
+    min-height: 46px;
+    font-size: 22px;
+  }
+
+  .light-button {
+    min-height: 44px;
+  }
+
+  .modal-card {
+    gap: 10px;
+    padding: 20px 20px;
+  }
+
+  .final-distance {
+    font-size: 44px;
+  }
+
+  .result-box strong {
+    font-size: 22px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

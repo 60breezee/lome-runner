@@ -36,6 +36,9 @@ const JUMP_HEIGHT = 2.1;
 const HORIZON_COLOR = '#cbeaf3';
 const WALL_KEYS = ['worksite', 'gate'];
 const COUNTDOWN_STEP_MS = 750;
+const DESIGN_ASPECT = 390 / 844;
+const DESIGN_FOV = 68;
+const MAX_HORIZONTAL_FOV = 95;
 
 const depthToZ = (depth) => (depth - GAMEPLAY.collisionDepth) * DEPTH_TO_Z;
 const easeOutSine = (t) => Math.sin((t * Math.PI) / 2);
@@ -98,7 +101,7 @@ export default class ThreeRunner {
 
     this.scene = new THREE.Scene();
     this.scene.fog = new THREE.Fog(HORIZON_COLOR, 28, 92);
-    this.camera = new THREE.PerspectiveCamera(68, 390 / 844, 0.3, 170);
+    this.camera = new THREE.PerspectiveCamera(DESIGN_FOV, DESIGN_ASPECT, 0.3, 170);
 
     this.resizeObserver = new ResizeObserver(() => this.resize());
     this.resizeObserver.observe(this.container);
@@ -108,8 +111,17 @@ export default class ThreeRunner {
   resize() {
     const width = this.container.clientWidth || 390;
     const height = this.container.clientHeight || 844;
+    const aspect = width / height;
     this.renderer.setSize(width, height, false);
-    this.camera.aspect = width / height;
+    // Narrower screens widen the vertical FOV so the three lanes stay framed;
+    // wider screens cap the horizontal FOV to avoid a fish-eye look.
+    const designHalf = Math.tan(THREE.MathUtils.degToRad(DESIGN_FOV / 2));
+    const half =
+      aspect < DESIGN_ASPECT
+        ? (designHalf * DESIGN_ASPECT) / aspect
+        : Math.min(designHalf, Math.tan(THREE.MathUtils.degToRad(MAX_HORIZONTAL_FOV / 2)) / aspect);
+    this.camera.fov = THREE.MathUtils.radToDeg(2 * Math.atan(half));
+    this.camera.aspect = aspect;
     this.camera.updateProjectionMatrix();
   }
 
@@ -247,12 +259,17 @@ export default class ThreeRunner {
     const count = Math.ceil(WORLD_LENGTH / DECOR_SPACING);
     const houseX = ROAD_WIDTH / 2 + CURB_WIDTH + SIDEWALK_WIDTH + 1.8;
     const palmX = ROAD_WIDTH / 2 + CURB_WIDTH + 1.5;
+    // Back row only shows up on wide (landscape) screens; frustum culling skips it in portrait.
+    const backRowX = houseX + 6.5;
     [-1, 1].forEach((side) => {
+      const facing = side > 0 ? Math.PI : 0;
       for (let index = 0; index < count; index += 1) {
         const z = WORLD_NEAR - index * DECOR_SPACING;
         const key = (index + (side > 0 ? 1 : 0)) % 2 === 0 ? 'house' : 'shop';
-        this.addDecor(key, side * houseX, z, side > 0 ? Math.PI : 0, count);
+        this.addDecor(key, side * houseX, z, facing, count);
         this.addDecor('palm', side * palmX, z - DECOR_SPACING / 2, index * 1.7, count);
+        this.addDecor('house', side * backRowX, z - DECOR_SPACING / 2, facing, count);
+        if (index % 2 === 0) this.addDecor('palm', side * (backRowX - 3.4), z, index * 2.3, count);
       }
     });
   }

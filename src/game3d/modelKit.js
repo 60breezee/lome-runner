@@ -370,6 +370,14 @@ const builders = {
       [29, 8, 9, 0xe9d49a],
       [40, 13, 12, 0xa9b4bb],
     ];
+    const palette = [0xb7c6cf, 0xe9d49a, 0xc98a6a, 0xa9b4bb];
+    [-1, 1].forEach((side) => {
+      for (let index = 0; index < 9; index += 1) {
+        const width = 7 + ((index * 5) % 6);
+        const height = 6 + ((index * 7 + (side > 0 ? 3 : 0)) % 9);
+        buildings.push([side * (58 + index * 10), width, height, palette[(index + (side > 0 ? 1 : 0)) % palette.length]]);
+      }
+    });
     buildings.forEach(([x, width, height, color]) => {
       kit.box(width, height, 4, color, { x, y: height / 2 });
       for (let row = 1.6; row < height - 0.8; row += 1.9) {

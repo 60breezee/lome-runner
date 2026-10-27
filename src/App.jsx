@@ -4,7 +4,7 @@ import GameOver from './components/GameOver.jsx';
 import Instructions from './components/Instructions.jsx';
 import MainMenu from './components/MainMenu.jsx';
 import Pause from './components/Pause.jsx';
-import { useGame } from './hooks/useGame.js';
+import { GAME_ENGINE, useGame } from './hooks/useGame.js';
 import { loadScoreData, saveScoreData } from './services/scoreStorage.js';
 import { playClick, setAudioEnabled, startMusic, stopMusic, unlockAudio } from './services/audioService.js';
 
@@ -131,7 +131,7 @@ export default function App() {
 
   return (
     <main className="game-viewport" aria-label="Lomé Runner">
-      <div className="game-stage">
+      <div className={`game-stage game-stage--${GAME_ENGINE}`}>
         <div ref={canvasHostRef} className="canvas-layer" />
         {screen === 'menu' && (
           <MainMenu
