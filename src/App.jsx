@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import GameHUD from './components/GameHUD.jsx';
 import GameOver from './components/GameOver.jsx';
+import InstallHelp from './components/InstallHelp.jsx';
 import Instructions from './components/Instructions.jsx';
 import MainMenu from './components/MainMenu.jsx';
 import Pause from './components/Pause.jsx';
 import { GAME_ENGINE, useGame } from './hooks/useGame.js';
+import { useAppUpdate, useInstallPrompt } from './hooks/usePwa.js';
 import { loadScoreData, saveScoreData } from './services/scoreStorage.js';
 import { playClick, setAudioEnabled, startMusic, stopMusic, unlockAudio } from './services/audioService.js';
 
@@ -18,6 +20,8 @@ export default function App() {
   const [countdown, setCountdown] = useState(null);
   const [levelBanner, setLevelBanner] = useState(null);
   const levelBannerTimerRef = useRef(null);
+  const { canPromptInstall, needsIosInstallHelp, promptInstall } = useInstallPrompt();
+  const { updateAvailable, applyUpdate, dismissUpdate } = useAppUpdate();
 
   useEffect(() => {
     setAudioEnabled(scoreData.soundEnabled);
@@ -109,6 +113,12 @@ export default function App() {
     });
   }, [screen, paused]);
 
+  const handleInstall = useCallback(() => {
+    playClick();
+    if (canPromptInstall) promptInstall();
+    else setScreen('install-help');
+  }, [canPromptInstall, promptInstall]);
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (screen === 'game' && (event.key === 'Escape' || event.key === 'p' || event.key === 'P')) {
@@ -120,7 +130,7 @@ export default function App() {
           event.preventDefault();
           startGame();
         }
-      } else if (screen === 'instructions' && event.key === 'Escape') {
+      } else if ((screen === 'instructions' || screen === 'install-help') && event.key === 'Escape') {
         event.preventDefault();
         setScreen('menu');
       }
@@ -143,7 +153,23 @@ export default function App() {
             }}
             soundEnabled={scoreData.soundEnabled}
             onToggleSound={toggleSound}
+            onInstall={canPromptInstall || needsIosInstallHelp ? handleInstall : null}
           />
+        )}
+        {screen === 'install-help' && (
+          <InstallHelp
+            onBack={() => {
+              playClick();
+              setScreen('menu');
+            }}
+          />
+        )}
+        {updateAvailable && screen !== 'game' && (
+          <div className="update-banner" role="status">
+            <span>Nouvelle version disponible</span>
+            <button className="update-button" type="button" onClick={applyUpdate}>Mettre à jour</button>
+            <button className="update-dismiss" type="button" aria-label="Plus tard" onClick={dismissUpdate}>×</button>
+          </div>
         )}
         {screen === 'instructions' && (
           <Instructions

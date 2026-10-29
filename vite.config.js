@@ -17,7 +17,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'prompt',
-      includeAssets: ['assets/**/*.svg', 'icons/*.svg'],
+      includeAssets: ['assets/**/*.svg', 'icons/*.svg', 'icons/*.png'],
       workbox: {
         runtimeCaching: [
           {
@@ -37,19 +37,25 @@ export default defineConfig({
         ],
       },
       manifest: {
+        id: '/',
         name: 'Lomé Runner',
         short_name: 'Lomé Runner',
-        description: 'Un endless runner inspiré de Lomé.',
+        description: 'Cours, esquive et bats ton record dans les rues de Lomé.',
         lang: 'fr',
+        dir: 'ltr',
+        categories: ['games'],
         theme_color: '#181614',
         background_color: '#181614',
         display: 'standalone',
+        display_override: ['fullscreen', 'standalone'],
         orientation: 'portrait',
         start_url: '/',
+        scope: '/',
         icons: [
-          { src: '/icons/icon.svg', sizes: '192x192', type: 'image/svg+xml' },
-          { src: '/icons/icon.svg', sizes: '512x512', type: 'image/svg+xml' },
-          { src: '/icons/icon-maskable.svg', sizes: '512x512', type: 'image/svg+xml', purpose: 'maskable' },
+          { src: '/icons/pwa-192.png', sizes: '192x192', type: 'image/png' },
+          { src: '/icons/pwa-512.png', sizes: '512x512', type: 'image/png' },
+          { src: '/icons/maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+          { src: '/icons/icon.svg', sizes: 'any', type: 'image/svg+xml' },
         ],
       },
     }),

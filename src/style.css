@@ -220,6 +220,66 @@ button:focus-visible {
   text-decoration: none;
 }
 
+.install-button {
+  width: 100%;
+  border: 2px solid #f4b400;
+  border-radius: 18px;
+  background: rgb(24 22 20 / 72%);
+  color: #f4b400;
+  font-size: 16px;
+}
+
+.install-steps {
+  margin: 0;
+  padding-left: 22px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.install-steps li + li {
+  margin-top: 8px;
+}
+
+.update-banner {
+  position: absolute;
+  z-index: 20;
+  top: calc(env(safe-area-inset-top, 0px) + 10px);
+  left: 50%;
+  display: flex;
+  width: min(360px, calc(100% - 24px));
+  align-items: center;
+  gap: 8px;
+  padding: 6px 6px 6px 14px;
+  border-radius: 16px;
+  background: #f1e3c6;
+  color: #181614;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgb(0 0 0 / 35%);
+  transform: translateX(-50%);
+}
+
+.update-banner span {
+  flex: 1;
+}
+
+.update-button {
+  padding: 0 12px;
+  border-radius: 12px;
+  background: #b3261e;
+  color: #f1e3c6;
+  font-size: 15px;
+}
+
+.update-dismiss {
+  width: 44px;
+  border-radius: 12px;
+  background: transparent;
+  color: #181614;
+  font-size: 22px;
+}
+
 .game-hud {
   position: absolute;
   z-index: 5;

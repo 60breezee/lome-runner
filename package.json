@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "test:logic": "node scripts/verify-logic.mjs"
+    "test:logic": "node scripts/verify-logic.mjs",
+    "icons": "node scripts/generate-icons.mjs",
+    "deploy": "npm run build && npx --yes wrangler@latest pages deploy dist --project-name lome-runner --branch main --commit-dirty=true"
   },
   "dependencies": {
     "phaser": "^3.90.0",
@@ -25,6 +27,7 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.4.0",
     "prettier": "^3.6.2",
+    "sharp": "^0.35.5",
     "vite": "^7.1.7",
     "vite-plugin-pwa": "^1.0.3"
   }

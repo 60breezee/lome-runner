@@ -1,6 +1,6 @@
 import { GAME_ENGINE } from '../hooks/useGame.js';
 
-export default function MainMenu({ bestScore, onPlay, onInstructions, soundEnabled, onToggleSound }) {
+export default function MainMenu({ bestScore, onPlay, onInstructions, soundEnabled, onToggleSound, onInstall }) {
   return (
     <section className="screen-overlay menu-screen">
       <span className="eyebrow">LOMÉ · TOGO</span>
@@ -18,6 +18,11 @@ export default function MainMenu({ bestScore, onPlay, onInstructions, soundEnabl
             {soundEnabled ? 'Son' : 'Muet'}
           </button>
         </div>
+        {onInstall && (
+          <button className="install-button" type="button" onClick={onInstall}>
+            Installer l'appli sur l'écran d'accueil
+          </button>
+        )}
         <a className="engine-switch" href={GAME_ENGINE === '3d' ? '?moteur=2d' : '?'}>
           {GAME_ENGINE === '3d' ? 'Jouer à la version 2D classique' : 'Revenir à la version 3D'}
         </a>
